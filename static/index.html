@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Generate a visual caption for a video." />
+    <title>Video Caption Generator</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">PRETRAINED VISUAL AI</p>
+        <h1 id="page-title">Video Caption<br /><span>Generator</span></h1>
+        <p class="intro">Upload a video and get a concise description of what it visually shows.</p>
+      </section>
+
+      <section class="card" aria-label="Video caption form">
+        <form id="caption-form">
+          <label class="drop-zone" id="drop-zone" for="video-input">
+            <input id="video-input" name="video" type="file" accept="video/mp4,video/quicktime,video/x-msvideo,video/x-matroska,video/webm" required />
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <strong id="file-label">Choose a video</strong>
+            <small>MP4, MOV, AVI, MKV, or WEBM · maximum 200 MB</small>
+          </label>
+          <button id="submit-button" type="submit">Generate caption</button>
+        </form>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+
+        <section id="video-player-section" class="video-player hidden" aria-labelledby="preview-heading">
+          <div class="player-heading">
+            <div>
+              <p class="eyebrow">VIDEO PREVIEW</p>
+              <h2 id="preview-heading">Audio description mode</h2>
+            </div>
+            <span class="accessibility-badge">VISUAL NARRATION</span>
+          </div>
+          <video id="video-preview" controls preload="metadata"></video>
+          <div class="narration-controls">
+            <button id="narration-button" class="secondary" type="button" disabled>Play with audio descriptions</button>
+            <label for="narration-rate">Narration speed
+              <select id="narration-rate">
+                <option value="0.85">Slow</option>
+                <option value="1" selected>Normal</option>
+                <option value="1.15">Fast</option>
+              </select>
+            </label>
+          </div>
+          <p class="narration-note">Repeated views are combined, while meaningful new actions and visual changes are narrated directly. The video pauses while each description is spoken at the browser's maximum narration volume, then resumes automatically.</p>
+        </section>
+
+        <section id="result" class="result hidden" aria-labelledby="caption-heading">
+          <p class="eyebrow">GENERATED CAPTION</p>
+          <h2 id="caption-heading"></h2>
+          <p id="meta" class="meta"></p>
+          <div class="result-actions">
+            <button id="download-button" class="secondary" type="button">Download result</button>
+          </div>
+          <details>
+            <summary>See captions from sampled moments</summary>
+            <ul id="frame-captions"></ul>
+          </details>
+          <details class="audio-timeline" open>
+            <summary>Audio-description script</summary>
+            <ul id="audio-descriptions"></ul>
+          </details>
+        </section>
+
+        <section id="history" class="history hidden" aria-labelledby="history-heading">
+          <div class="history-heading">
+            <h2 id="history-heading">Recent captions</h2>
+            <button id="clear-history" class="text-button" type="button">Clear</button>
+          </div>
+          <ul id="history-list"></ul>
+        </section>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

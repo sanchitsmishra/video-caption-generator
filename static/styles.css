@@ -1,0 +1,108 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #10131a;
+  color: #f4f1eb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 15%, rgba(255, 167, 92, 0.15), transparent 33rem),
+    radial-gradient(circle at 85% 88%, rgba(111, 173, 255, 0.14), transparent 30rem),
+    #10131a;
+}
+
+.page-shell {
+  width: min(980px, calc(100% - 40px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 88px 0;
+}
+
+.hero { max-width: 660px; }
+.eyebrow { color: #ffa75c; font-size: .76rem; font-weight: 800; letter-spacing: .15em; margin: 0 0 12px; }
+h1, h2 { margin: 0; letter-spacing: -.05em; }
+h1 { font-size: clamp(3.2rem, 10vw, 6.2rem); line-height: .87; }
+h1 span { color: #9bc8ff; }
+.intro { max-width: 480px; color: #b8c0cf; font-size: 1.08rem; line-height: 1.55; margin: 26px 0 40px; }
+
+.card {
+  background: rgba(25, 31, 43, .84);
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 24px;
+  box-shadow: 0 25px 80px rgba(0,0,0,.24);
+  padding: clamp(20px, 4vw, 38px);
+}
+
+.drop-zone {
+  display: flex;
+  min-height: 178px;
+  padding: 25px;
+  border: 1.5px dashed #66748e;
+  border-radius: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color .2s, background .2s;
+}
+.drop-zone.dragging, .drop-zone:hover { border-color: #9bc8ff; background: rgba(155, 200, 255, .08); }
+.drop-zone input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.upload-icon { color: #10131a; background: #ffa75c; border-radius: 50%; font-size: 1.5rem; font-weight: 800; height: 42px; line-height: 43px; margin-bottom: 12px; width: 42px; }
+.drop-zone small { color: #9faaba; margin-top: 6px; }
+
+button {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  background: #ffa75c;
+  color: #1d1711;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  margin-top: 16px;
+  padding: 15px 20px;
+  transition: transform .15s, opacity .15s;
+}
+button:hover:not(:disabled) { transform: translateY(-1px); }
+button:disabled { cursor: wait; opacity: .65; }
+.result-actions { display: flex; gap: 12px; margin: 19px 0; }
+.result-actions button { margin: 0; width: auto; }
+button.secondary { background: #283449; color: #dce7f7; }
+.status { min-height: 1.5em; color: #b8c0cf; margin: 18px 2px 0; }
+.status.error { color: #ff9999; }
+.video-player { border-top: 1px solid rgba(255,255,255,.1); margin-top: 26px; padding-top: 26px; }
+.player-heading { align-items: flex-start; display: flex; gap: 20px; justify-content: space-between; }
+.player-heading h2 { font-size: 1.5rem; letter-spacing: -.03em; }
+.accessibility-badge { border: 1px solid #9bc8ff; border-radius: 999px; color: #9bc8ff; font-size: .67rem; font-weight: 800; letter-spacing: .1em; padding: 7px 9px; white-space: nowrap; }
+video { background: #080a0e; border-radius: 14px; display: block; margin-top: 18px; max-height: 390px; width: 100%; }
+.narration-controls { align-items: center; display: flex; flex-wrap: wrap; gap: 14px; margin-top: 15px; }
+.narration-controls button { margin: 0; width: auto; }
+.narration-controls label { color: #bdc6d5; font-size: .9rem; }
+select { background: #283449; border: 1px solid #53637d; border-radius: 7px; color: #f4f1eb; font: inherit; margin-left: 6px; padding: 6px 8px; }
+.narration-note { color: #9faaba; font-size: .88rem; line-height: 1.45; margin: 13px 0 0; }
+.result { border-top: 1px solid rgba(255,255,255,.1); margin-top: 28px; padding-top: 26px; }
+.result h2 { font-size: clamp(1.55rem, 4vw, 2.3rem); line-height: 1.1; }
+.meta { color: #9bc8ff; margin: 12px 0 20px; }
+details { color: #bdc6d5; }
+summary { cursor: pointer; }
+.audio-timeline { margin-top: 18px; }
+ul { line-height: 1.6; padding-left: 22px; }
+.key-moment { color: #dceaff; }
+.additional-scene { color: #c7d0df; }
+.history { border-top: 1px solid rgba(255,255,255,.1); margin-top: 28px; padding-top: 22px; }
+.history-heading { align-items: center; display: flex; justify-content: space-between; }
+.history h2 { font-size: 1.25rem; letter-spacing: -.02em; }
+.history ul { color: #b8c0cf; font-size: .92rem; max-height: 150px; overflow: auto; }
+button.text-button { background: transparent; color: #9bc8ff; margin: 0; padding: 7px; text-decoration: underline; width: auto; }
+.hidden { display: none; }
+
+@media (max-width: 600px) {
+  .page-shell { padding: 54px 0; }
+  .card { border-radius: 18px; }
+}
