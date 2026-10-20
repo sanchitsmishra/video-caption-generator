@@ -13,7 +13,6 @@ import torch
 from PIL import Image
 from transformers import BlipForConditionalGeneration, BlipProcessor
 
-
 MODEL_ID = "Salesforce/blip-image-captioning-base"
 SCENE_SCAN_INTERVAL_SECONDS = 0.75
 MAX_SCENE_GAP_SECONDS = 8.0
